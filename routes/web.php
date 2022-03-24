@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\PostState;
 use App\Http\Controllers\PostController;
 use App\Models\Post;
 use App\Models\User;
@@ -19,6 +20,45 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('posts/{post}', function (Post $post) {
+   return $post;
+})->name('posts.show');
+
+/* STATE BY WILDCARD BINDING
+ * Route::get('/posts/{state}', function (PostState $state) {
+   dd($state);
+});
+ *
+ */
+
+/* CHECK IF STATE IS DRAFT
+ * Route::get('/', function () {
+    $post = Post::inRandomOrder()->first();
+
+    if ($post->state === PostState::Draft){
+        return 'It is a draft';
+    }
+
+    return 'Done';
+});
+ *
+ */
+
+
+// ENUM ATTRIBUTE CASTING
+/*Route::get('/', function () {
+    $post = new Post;
+
+    $post->user_id = 1;
+    $post->title = 'My title';
+    $post->body = 'My body';
+    $post->state = PostState::Published;
+
+    $post->save();
+
+    return ' Done';
+});*/
 
 // LARAVEL SCOUT DATABASE ENGINE
 /*

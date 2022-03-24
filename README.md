@@ -12,4 +12,5 @@ A mini-project to learn what's new in Laravel 9 update
     - Test Coverage with XDebug
     - Laravel Scout Database Engine
     - Full Text Indexing
-    - 
+    - Enum Attribute Casting
+    - Simplified Accessors & Mutators
